@@ -201,9 +201,7 @@ const Predictions = () => {
                   <div className="text-center">
                     <h3 className="fw-bold">VS</h3>
 
-                    <small className="text-light">
-                      Grupo {match.group_name}
-                    </small>
+                    <small className="text-light">{match.group_name}</small>
                   </div>
                   <div
                     className="text-center"
