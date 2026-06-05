@@ -8,6 +8,8 @@ import CountdownCard from "../components/CountdownCard";
 
 import NextMatches from "../components/NextMatches";
 
+import TournamentRules from "../components/TournamentRules";
+
 const Dashboard = () => {
   return (
     <MainLayout>
@@ -20,6 +22,8 @@ const Dashboard = () => {
         {/* Stats */}
 
         <StatsCards />
+
+        <TournamentRules />
 
         {/* Próximos partidos */}
 
