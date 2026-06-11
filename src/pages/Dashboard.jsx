@@ -14,7 +14,6 @@ const Dashboard = () => {
   return (
     <MainLayout>
       <div className="container-fluid mt-4 px-2 px-lg-4 pb-5 mb-5">
-        <CountdownCard />
         {/* Bienvenida */}
 
         <WelcomeCard />
