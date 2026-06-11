@@ -93,20 +93,6 @@ const Login = () => {
               <img src={Prado} alt="Prado" className="grass-loader" />
             </div>
           )}
-          <p className="mt-3">
-            Participa y compite por el primer lugar{" "}
-            <GiTrophyCup className="me-2" style={{ color: "#e6e203" }} />
-          </p>
-          <Link
-            to="/register"
-            style={{
-              color: "#39FF14",
-              fontWeight: "bold",
-              textDecoration: "none",
-            }}
-          >
-            Regístrate
-          </Link>
         </div>
       </div>
     </div>

@@ -31,10 +31,6 @@ const AppRouter = () => {
 
       <Route path="/" element={<Login />} />
 
-      {/* REGISTER */}
-
-      <Route path="/register" element={<Register />} />
-
       {/* DASHBOARD */}
 
       <Route
