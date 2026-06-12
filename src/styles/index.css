@@ -3,13 +3,23 @@
 
   --color-light: #dedacd;
 
-  --color-primary: #39ff14;
+  --color-primary: #22aa0a;
 
   --color-danger: #a12a0b;
 
   --color-secondary: #627697;
 }
+.color-primero {
+  color: #ffd700;
+}
 
+.color-segundo {
+  color: #c0c0c0;
+}
+
+.color-tercero {
+  color: #cd7f32;
+}
 body {
   margin: 0;
   background-color: var(--color-dark);
@@ -25,7 +35,7 @@ body {
 }
 
 .btn-worldcup:hover {
-  background-color: #37ff14a8;
+  background-color: #1e9608ee;
 }
 
 .card-worldcup {

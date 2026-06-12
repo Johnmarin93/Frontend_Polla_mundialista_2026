@@ -94,12 +94,12 @@ const Ranking = () => {
             <div
               key={user.id}
               className="
-        d-flex
-        justify-content-between
-        align-items-center
-        py-3
-        border-bottom
-      "
+                d-flex
+                justify-content-between
+                align-items-center
+                py-3
+                border-bottom
+              "
               style={{
                 borderColor: "#62769733",
               }}

@@ -4,7 +4,7 @@ import { countryCodes } from "../utils/countryCodes";
 import { getMatches } from "../services/matchService";
 import { WiTime8 } from "react-icons/wi";
 import { FaCheckCircle } from "react-icons/fa";
-import { FcCalendar } from "react-icons/fc";
+import { FcCalendar, FcAlarmClock } from "react-icons/fc";
 import { FaStar } from "react-icons/fa";
 
 import {
@@ -40,6 +40,26 @@ const Predictions = () => {
 
     return matchStatus && searchMatch;
   });
+  const [now, setNow] = useState(Date.now());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setNow(Date.now());
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const isToday = (dateString) => {
+    const matchDate = new Date(dateString.replace(" ", "T"));
+    const today = new Date();
+
+    return (
+      matchDate.getDate() === today.getDate() &&
+      matchDate.getMonth() === today.getMonth() &&
+      matchDate.getFullYear() === today.getFullYear()
+    );
+  };
 
   useEffect(() => {
     if (user) {
@@ -129,6 +149,29 @@ const Predictions = () => {
     gameDate.setMinutes(gameDate.getMinutes() - 15);
 
     return now >= gameDate;
+  };
+
+  const getCountdown = (dateString) => {
+    const matchDate = new Date(dateString.replace(" ", "T"));
+
+    // Solo mostrar para partidos de hoy
+    if (!isToday(dateString)) return null;
+
+    const closeDate = new Date(matchDate.getTime() - 15 * 60 * 1000);
+
+    const diff = closeDate.getTime() - now;
+
+    if (diff <= 0) {
+      return "🔒 Pronóstico cerrado ";
+    }
+
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    return `⏰ ${hours}h ${minutes}m ${seconds}s`;
   };
 
   return (
@@ -233,7 +276,7 @@ const Predictions = () => {
                 </div>
               </div>
               <div className="card-footer d-flex justify-content-center gap-4 flex-wrap">
-                <span className="d-flex align-items-center ">
+                <span className="d-flex align-items-center">
                   <FcCalendar className="me-2" />
                   {match.match_date.split(" ")[0]}
                 </span>
@@ -243,6 +286,14 @@ const Predictions = () => {
                   {match.match_date.split(" ")[1].slice(0, 5)}
                 </span>
               </div>
+
+              {getCountdown(match.match_date) && (
+                <div className="text-center pb-3">
+                  <span className="badge bg-danger">
+                    {getCountdown(match.match_date)}
+                  </span>
+                </div>
+              )}
 
               <div className="d-flex justify-content-center gap-3 mt-3 px-2">
                 <div className="text-center">
@@ -313,12 +364,6 @@ const Predictions = () => {
                   Guardar Pronóstico
                 </button>
               </div>
-
-              {locked && (
-                <div className="alert alert-secondary mt-3 mb-0">
-                  🔒 Pronóstico cerrado
-                </div>
-              )}
             </div>
           );
         })}

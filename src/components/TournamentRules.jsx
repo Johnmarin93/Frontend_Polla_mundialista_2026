@@ -1,6 +1,14 @@
 import { FaTrophy, FaMedal, FaFutbol } from "react-icons/fa";
 import { GiTrophyCup, GiSoccerBall } from "react-icons/gi";
-import { FcRules } from "react-icons/fc";
+import {
+  FcRules,
+  FcAlarmClock,
+  FcCancel,
+  FcPrivacy,
+  FcPlus,
+  FcEditImage,
+  FcBullish,
+} from "react-icons/fc";
 import { BsPatchQuestionFill } from "react-icons/bs";
 
 const TournamentRules = () => {
@@ -9,23 +17,46 @@ const TournamentRules = () => {
       {/* PREMIOS */}
       <div className="col-lg-4">
         <div className="welcome-card p-4 shadow-lg h-100">
-          <h4 className="text-center mb-4">
-            <GiTrophyCup className="mb-2" /> Premiación
-          </h4>
+          <div className="d-flex flex-column justify-content-center h-100">
+            <h4 className="text-center mb-4">
+              <GiTrophyCup
+                size={40}
+                className="d-block mx-auto mb-2 text-warning"
+              />
+              Premiación
+            </h4>
+            <div
+              className="rounded p-3 mb-3 text-center "
+              style={{
+                background: "rgba(255,255,255,0.05)",
+                border: "1px solid rgba(255,255,255,0.1)",
+              }}
+            >
+              🥇 <strong>1° Lugar</strong>
+              <h3 className="color-primero ">$600.000</h3>
+            </div>
 
-          <div className="text-center mt-5">
-            <p>
-              <FaMedal size={20} color="#FFD700" /> Primer puesto
-              <strong> $600.000</strong>
-            </p>
-            <p>
-              <FaMedal size={20} color="#C0C0C0" /> Segundo puesto
-              <strong> $250.000</strong>
-            </p>
-            <p>
-              <FaMedal size={20} color="#CD7F32" /> Tercer puesto{" "}
-              <strong> $150.000</strong>
-            </p>
+            <div
+              className="rounded p-3 mb-3 text-center"
+              style={{
+                background: "rgba(255,255,255,0.05)",
+                border: "1px solid rgba(255,255,255,0.1)",
+              }}
+            >
+              🥈 <strong>2° Lugar</strong>
+              <h4 className="color-segundo">$250.000</h4>
+            </div>
+
+            <div
+              className="rounded p-3 mb-3 text-center"
+              style={{
+                background: "rgba(255,255,255,0.05)",
+                border: "1px solid rgba(255,255,255,0.1)",
+              }}
+            >
+              🥉 <strong>3° Lugar</strong>
+              <h4 className="color-tercero">$150.000</h4>
+            </div>
           </div>
         </div>
       </div>
@@ -34,33 +65,31 @@ const TournamentRules = () => {
       <div className="col-lg-4">
         <div className="welcome-card p-4 shadow-lg h-100">
           <h4 className="text-center mb-4">
-            <GiSoccerBall className="mb-2" /> Puntuación
+            <GiSoccerBall
+              size={40}
+              className="d-block mx-auto mb-2 text-success"
+            />
+            Puntuación
           </h4>
+          <div className="mb-3 p-2 border-start border-4 border-success">
+            🎯 Marcador Exacto = <strong> 5 pts</strong>
+          </div>
 
-          <p>
-            🎯 Exacto = <strong style={{ color: "#39ff14" }}>5 pts</strong> Ej:
-            Pronóstico 2-0 y el partido termina 2-0.
-          </p>
-          <p>
-            ⚽ Ganador + diferencia ={" "}
-            <strong style={{ color: "#39ff14" }}>3 pts</strong> Ej:Pronóstico
-            2-1 y el partido termina 3-2. Acertaste el ganador y la diferencia
-            de gol (1)
-          </p>
-          <p>
-            🏆 Solo ganador ={" "}
-            <strong style={{ color: "#39ff14" }}>2 pts</strong> Ej: Pronóstico
-            3-1 y el partido termina 1-0. Acertaste únicamente el ganador.
-          </p>
-          <p>
-            🤝 Empate = <strong style={{ color: "#39ff14" }}>2 pts</strong> Ej:
-            Pronóstico 1-1 y el partido termina 0-0. Acertaste que el resultado
-            sería empate.
-          </p>
+          <div className="mb-3 p-2 border-start border-4 border-info">
+            ⚽ Ganador + diferencia = <strong> 3 pts</strong>
+          </div>
 
-          <hr />
+          <div className="mb-3 p-2 border-start border-4 border-warning">
+            🏆 Solo ganador = <strong> 2 pts</strong>
+          </div>
 
-          <p className="mb-0">🔥 Desde 16avos los puntos valen el doble.</p>
+          <div className="mb-3 p-2 border-start border-4 border-secondary">
+            🤝 Empate = <strong> 2 pts</strong>
+          </div>
+
+          <div className="alert alert-success mt-3 mb-0">
+            🔥 Desde 16avos los puntos valen el doble
+          </div>
         </div>
       </div>
 
@@ -68,26 +97,47 @@ const TournamentRules = () => {
       <div className="col-lg-4">
         <div className="welcome-card p-4 shadow-lg h-100">
           <h4 className="text-center mb-4">
-            <FcRules className="mb-2" /> Reglas
+            <FcRules size={40} className="d-block mx-auto mb-2" />
+            Reglas
           </h4>
+          <div className="mb-2 p-2 ">
+            <FcAlarmClock size={20} className="mb-1" /> Solo cuentan los 90
+            minutos + adición
+          </div>
 
-          <ul className="mb-0">
-            <li>
-              Solo cuentan los 90 minutos reglamentarios más el tiempo de
-              adición.
-            </li>
-            <li>No cuentan penales.</li>
-            <li>No cuentan tiempos extra.</li>
-            <li>
-              Los pronósticos se cierran 15 minutos antes de cada partido.
-            </li>
-            <li>Se pueden ingresar todos los marcadores desde el inicio.</li>
-            <li>
-              Se pueden modificar los marcadores hasta 15 minutos antes de cada
-              partido
-            </li>
-            <li>El Ranking se actualiza despues de cada partido.</li>
-          </ul>
+          <div className="mb-2 p-2 ">
+            <FcCancel size={20} className="mb-1" /> No cuentan penales ni
+            tiempos extra
+          </div>
+
+          <div className="mb-2 p-2 ">
+            <FcPrivacy size={20} className="mb-1" /> Los pronósticos cierran 15
+            min antes del partido
+          </div>
+
+          <div className="mb-2 p-2">
+            <FcPlus size={20} className="mb-1" /> Puedes ingresar todos los
+            pronosticos.
+          </div>
+
+          <div className="mb-2 p-2">
+            <FcEditImage size={20} className="mb-1" /> Puedes editar los
+            pronosticos 15 minutos antes del partdo.
+          </div>
+
+          <div className="mb-2 p-2 ">
+            <FcBullish size={20} className="mb-1" /> El ranking se actualiza
+            después de cada partido.
+          </div>
+
+          <div className="alert alert-success mt-3 mb-0">
+            <h6>🏆 Desempate</h6>
+
+            <ol className="mb-0">
+              <li>Fecha y hora de registro.</li>
+              <li>Fecha y hora de confirmación del pago.</li>
+            </ol>
+          </div>
         </div>
       </div>
     </div>
