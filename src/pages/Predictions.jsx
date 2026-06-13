@@ -349,7 +349,7 @@ const Predictions = () => {
                     }}
                   >
                     <FaStar className="mb-1" style={{ color: "#FFD700" }} />{" "}
-                    {scores[match.id]?.points || 0} puntos
+                    {scores[match.id]?.points} puntos
                     {console.log(match.id, scores[match.id])}
                   </div>
                 </div>

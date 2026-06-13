@@ -4,8 +4,10 @@ import Copa from "../assets/copa.png";
 import { GiTrophyCup } from "react-icons/gi";
 import { FaMedal } from "react-icons/fa";
 import { getRanking } from "../services/rankingService";
+import { useAuth } from "../context/AuthContext";
 
 const Ranking = () => {
+  const { user } = useAuth();
   const [ranking, setRanking] = useState([]);
 
   useEffect(() => {
@@ -25,7 +27,8 @@ const Ranking = () => {
   const topThree = ranking.slice(0, 3);
 
   const others = ranking.slice(3);
-
+  console.log("Usuario logueado:", user);
+  console.log("Primer ranking:", ranking[0]);
   return (
     <MainLayout>
       <div className="container mt-4">
@@ -90,16 +93,17 @@ const Ranking = () => {
           )}
         </div>
         <div className="welcome-card p-4 shadow-lg">
-          {others.map((user, index) => (
+          {others.map((item, index) => (
             <div
-              key={user.id}
-              className="
-                d-flex
-                justify-content-between
-                align-items-center
-                py-3
-                border-bottom
-              "
+              key={item.id}
+              className={`
+    d-flex
+    justify-content-between
+    align-items-center
+    py-3
+    border-bottom
+    ${Number(item.id) === Number(user?.id) ? "my-row" : ""}
+  `}
               style={{
                 borderColor: "#62769733",
               }}
@@ -108,7 +112,7 @@ const Ranking = () => {
                 <strong>#{index + 4}</strong>
               </div>
 
-              <div className="flex-grow-1 ms-4">{user.nombre}</div>
+              <div className="flex-grow-1 ms-4">{item.nombre}</div>
 
               <div
                 className="badge"
@@ -118,7 +122,7 @@ const Ranking = () => {
                   fontSize: "14px",
                 }}
               >
-                {user.total_points} pts
+                {item.total_points} pts
               </div>
             </div>
           ))}
