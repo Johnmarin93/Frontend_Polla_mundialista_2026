@@ -50,7 +50,7 @@ const Standings = () => {
                 fontWeight: "bold",
               }}
             >
-              Grupo {group}
+              {group}
             </h4>
             <div className="table-responsive">
               <table className="table table-transparent align-middle">
