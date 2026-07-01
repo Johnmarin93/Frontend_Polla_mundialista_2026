@@ -123,7 +123,7 @@ const SidebarContent = ({ user, handleLogout, closeMenu }) => {
             Inicio
           </Link>
 
-          <Link to="/standings" className="nav-link text-white mb-1">
+          {/*<Link to="/standings" className="nav-link text-white mb-1">
             <FaTrophy
               style={{
                 color: "#37ff14a8",
@@ -133,7 +133,7 @@ const SidebarContent = ({ user, handleLogout, closeMenu }) => {
               }}
             />{" "}
             Tabla posiciones
-          </Link>
+          </Link>*/}
 
           <Link to="/predictions" className="nav-link text-white mb-1">
             <GiSoccerBall
