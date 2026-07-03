@@ -25,9 +25,19 @@ export const createPrediction = async (predictionData) => {
 };
 
 export const getUserPredictions = async (userId) => {
-  const res = await fetch(`${API_URL}/user/${userId}`);
+  const token = localStorage.getItem("token");
+
+  const res = await fetch(`${API_URL}/user/${userId}`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
 
   const data = await res.json();
+
+  if (!res.ok) {
+    throw new Error(data.error || "Error obteniendo pronósticos");
+  }
 
   return data;
 };
