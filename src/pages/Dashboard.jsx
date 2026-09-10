@@ -10,6 +10,8 @@ import NextMatches from "../components/NextMatches";
 
 import TournamentRules from "../components/TournamentRules";
 
+import Winners from "../components/Winners";
+
 const Dashboard = () => {
   return (
     <MainLayout>
@@ -23,6 +25,7 @@ const Dashboard = () => {
         <StatsCards />
 
         <TournamentRules />
+        <Winners />
 
         {/* Próximos partidos */}
 

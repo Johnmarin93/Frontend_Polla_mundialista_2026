@@ -1,4 +1,3 @@
-import { FaTrophy, FaMedal, FaFutbol } from "react-icons/fa";
 import { GiTrophyCup, GiSoccerBall } from "react-icons/gi";
 import {
   FcRules,

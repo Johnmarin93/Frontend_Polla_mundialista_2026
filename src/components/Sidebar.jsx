@@ -189,6 +189,18 @@ const SidebarContent = ({ user, handleLogout, closeMenu }) => {
             {user?.nombre.toUpperCase()}
           </div>
           <div className="d-flex flex-column mt-3">
+            <Link to="/dashboard" className="nav-link text-white mb-1">
+              <FaHome
+                style={{
+                  color: "#37ff14a8",
+                  width: "17px",
+                  marginBottom: "5px",
+                  fontSize: "30px",
+                }}
+              />
+              {"   "}
+              Inicio
+            </Link>
             <Link
               to="/admin"
               onClick={closeMenu}
@@ -202,7 +214,7 @@ const SidebarContent = ({ user, handleLogout, closeMenu }) => {
                   fontSize: "30px",
                 }}
               />{" "}
-              Dashboard
+              Administración
             </Link>
 
             <Link
